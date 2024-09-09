@@ -38,7 +38,7 @@ app.use(passport.session());
 
 passport.use(
     new OAuth2Strategy({
-        clientID: process.env.CLIENT,
+        clientID: process.env.CLIENTID,
         clientSecret: process.env.CLIENTSECRET,
         callbackURL:"/auth/google/callback",
         scope:["profile","email"]
