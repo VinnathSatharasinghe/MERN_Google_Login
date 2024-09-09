@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+// import GoogleLogin from "../Google/testpage.jsx";
+
+import "./App.css";
+// import StarsCanvas from "./animation/StarsCanvas";
+import Signup from "./pages/Signup/Singup.jsx";
+import Home from "./pages/home/Home";
+// import Testlogin from "../src/pages/test/tlogin";
+// import Testsing from "../src/pages/test/tsing";
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const GoogleAuthWrapper = () => {
+    return (
+      <GoogleOAuthProvider clientId="633790086752-nklc5qmasi9fdhmc1ipopf1aci8pg249.apps.googleusercontent.com">
+        <Home />
+      </GoogleOAuthProvider>
+    );
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* <StarsCanvas className="stars-canvas" /> */}
+      <div className="content">
+        {/* <div style={{ position: "relative", zIndex: 1 }}> */}
+          <Router>
+            <Routes>
+              <Route path="/" element={<GoogleAuthWrapper />} />
+              <Route path="/a" element={<Signup />} />
+              {/* <Route path="/aa" element={<Testsing />} />
+              <Route path="/tl" element={<Testlogin />} /> */}
+            </Routes>
+          </Router>
+        </div>
+      {/* </div> */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

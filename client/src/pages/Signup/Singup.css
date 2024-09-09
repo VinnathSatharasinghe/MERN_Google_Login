@@ -1,0 +1,26 @@
+.home-page {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .home-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .home-content {
+    margin-top: 20px;
+  }
+  
+  .home-section {
+    margin: 20px 0;
+  }
+  
+  .home-footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: gray;
+  }
+  
